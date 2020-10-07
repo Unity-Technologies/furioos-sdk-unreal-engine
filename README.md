@@ -23,6 +23,7 @@ To connect to the websocket server, you will have to bind your event as shown in
 ## C++ Usage
 
 In the zip file, you'll find an actor class example name : FSWS_Example
+### Events
 
 #### FSOnConnectComplete()
 Bind an event that will be called when the application is connected and signed in to the Furioos streaming server and ready to communicate.
@@ -40,3 +41,12 @@ Bind an event that will be called each time an error is fired.
 #### FSOnClosed()
 Bind an event that will be called when the connection with Furioos streaming server is closed.
 
+### Methods
+
+#### void Connect()
+You can call this function to connect your application to the Furioos Streaming Server.
+
+#### void SendText(FString& data)
+Send data to the JS client
+
+- `FString data`: The data to send
