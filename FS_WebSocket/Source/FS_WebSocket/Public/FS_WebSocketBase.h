@@ -13,7 +13,6 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FWebSocketConnectError, const FStrin
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWebSocketClosed);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWebSocketConnected);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FWebSocketRecieve, const FString&, data);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FWebSocketRecieveDebug, const FString&, data);
 
 //DEFINE_LOG_CATEGORY_STATIC(FSWebSocket, Log, All);
 
@@ -77,9 +76,6 @@ public:
 	void SendSignIn();
 
 	UFUNCTION()
-	void OnConnectionSuccess();
-
-	UFUNCTION()
 	void OnConnectionError(const FString& error);
 
 	UFUNCTION()
@@ -88,8 +84,6 @@ public:
 	UFUNCTION()
 	void OnReceivedData(const FString& data);
 
-	UFUNCTION()
-		void OnReceivedDataDebug(const FString& data);
 
 	UPROPERTY(BlueprintAssignable, Category = WebSocket)
 	FWebSocketConnectError FSOnConnectError;
@@ -103,6 +97,4 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = WebSocket)
 		FWebSocketRecieve FSOnReceiveData;
 
-	UPROPERTY(BlueprintAssignable, Category = WebSocket)
-		FWebSocketRecieveDebug FSOnReceiveDataDebug;
 };

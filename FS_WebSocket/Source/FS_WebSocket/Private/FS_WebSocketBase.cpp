@@ -22,10 +22,6 @@ void AFS_WebSocketBase::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FName ModuleName = TEXT("WebSockets");
-	FModuleManager& Manager = FModuleManager::Get();
-	FWebSocketsModule& Module = Manager.LoadModuleChecked<FWebSocketsModule>("WebSockets");
-
 }
 
 // Called every frame
@@ -37,7 +33,11 @@ void AFS_WebSocketBase::Tick(float DeltaTime)
 
 void AFS_WebSocketBase::Connect(const FString& uri) {
 
-	const FString ServerURL = (TEXT("%s"), uri);
+	FName ModuleName = TEXT("WebSockets");
+	FModuleManager& Manager = FModuleManager::Get();
+	FWebSocketsModule& Module = Manager.LoadModuleChecked<FWebSocketsModule>("WebSockets");
+
+	const FString ServerURL = (TEXT("%s"), *uri);
 	UE_LOG(LogTemp, Warning, TEXT("%s"), *ServerURL);
 	const FString ServerProtocol = TEXT("");
 
@@ -66,8 +66,6 @@ void AFS_WebSocketBase::Connect(const FString& uri) {
 	}
 
 	Socket->OnMessage().AddUObject(this, &AFS_WebSocketBase::OnReceivedData);
-
-	Socket->OnMessage().AddUObject(this, &AFS_WebSocketBase::OnReceivedDataDebug);
 
 	Socket->OnRawMessage().AddLambda([](const void* Data, SIZE_T Size, SIZE_T BytesRemaining) -> void {
 		//Here you can implement a Raw Message function
@@ -106,11 +104,6 @@ void AFS_WebSocketBase::SendText(const FString& data) {
 void AFS_WebSocketBase::SendSignIn()
 {
 	SendText("{\"type\" :\"signIn\",\"peerName\" :\"SDK_APP\"}");
-}
-
-
-void AFS_WebSocketBase::OnConnectionSuccess() {
-//	SendSignIn();
 }
 
 void AFS_WebSocketBase::OnConnectionError(const FString& error)
@@ -168,7 +161,3 @@ void AFS_WebSocketBase::OnReceivedData(const FString& data)
 	
 }
 
-void AFS_WebSocketBase::OnReceivedDataDebug(const FString & data)
-{
-	FSOnReceiveDataDebug.Broadcast(data);
-}
