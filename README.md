@@ -3,16 +3,24 @@
 Minimum requirements: Business subscription (or higher) on Furioos to use the SDK.
 Then choose the app you want to use with the SDK and create a SDK link.
 
-**Tested on Unreal Engine 4.25**
+**Tested on Unreal Engine 4.25.3 and 4.26-preview**
 
 ## Installation
 1. Download the latest version of the Zip package.
-2. Import the package in your project folder (into Plugins Folder)
-3. Put the blueprint **FS_WebSocket_BP** in your scene
+2. Create a folder named "Plugins" in your project folder.
+3. Extract the "FS_WebSocket" into Plugins Folder.
+4. Launch your Unreal project (if your version of UE is different from 4.25.3, you will need a development IDE installed to compile the plugin again).
+5. Put the blueprint **FS_WebSocket_BP** in your scene
 
 ![Alt text](/FS_WebSocket/Resources/unreal.png)
 
 You'll need to have the **FS_WebSocket_BP** blueprint in each scene with SDK interactions.
+
+## General Usage
+
+When the plugin is installed and enabled, you will find a scene example with Blueprint and C++ class in LexelExample (to see the folders :)
+
+![Alt text](/FS_WebSocket/Resources/display_pluginsfolders.PNG)
 
 ## Blueprint Usage
 
@@ -22,7 +30,6 @@ To connect to the websocket server, you will have to bind your event as shown in
 
 ## C++ Usage
 
-In the zip file, you'll find an actor class example name : FSWS_Example
 ### Events
 
 #### FSOnConnectComplete()
