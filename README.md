@@ -1,4 +1,7 @@
 # Furioos UE SDK
+
+This repository is in Beta, we do not provide support for it.
+
 ## Requirements
 Minimum requirements: Business subscription (or higher) on Furioos to use the SDK.
 Then choose the app you want to use with the SDK and create a SDK link.
