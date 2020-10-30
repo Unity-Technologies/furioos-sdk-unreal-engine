@@ -56,7 +56,7 @@ Bind an event that will be called when the connection with Furioos streaming ser
 #### void Connect()
 You can call this function to connect your application to the Furioos Streaming Server.
 
-#### void SendText(FString& data)
+#### void SendSDKMessage(FString& data)
 Send data to the JS client
 
 - `FString data`: The data to send

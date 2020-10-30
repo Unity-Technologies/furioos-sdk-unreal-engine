@@ -101,6 +101,10 @@ void AFS_WebSocketBase::SendText(const FString& data) {
 	}
 }
 
+void AFS_WebSocketBase::SendSDKMessage(const FString& data) {
+	SendText("{\"type\": \"furioos\", \"task\": \"sdk\", \"data\": \"" + data.ReplaceCharWithEscapedChar() + "\"}");
+}
+
 void AFS_WebSocketBase::SendSignIn()
 {
 	SendText("{\"type\" :\"signIn\",\"peerName\" :\"SDK_APP\"}");
@@ -118,6 +122,9 @@ void AFS_WebSocketBase::OnConnectionClosed()
 
 void AFS_WebSocketBase::OnReceivedData(const FString& data)
 {
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Data Received"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, (TEXT("%s"), *data));
+
 	FSDKMessage JsonData;
 	bool JsonParsed = FJsonObjectConverter::JsonObjectStringToUStruct<FSDKMessage>(
 			*data,
@@ -156,6 +163,7 @@ void AFS_WebSocketBase::OnReceivedData(const FString& data)
 		}
 		else if (JsonData.type == "furioos" && JsonData.task == "sdk") {
 			FSOnReceiveData.Broadcast(JsonData.data);
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("OK"));
 		}
 	}
 	

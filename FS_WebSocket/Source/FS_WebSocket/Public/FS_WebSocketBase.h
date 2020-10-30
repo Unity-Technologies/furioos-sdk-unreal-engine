@@ -69,10 +69,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = FSWebSocket)
 	void Close();
 
-	UFUNCTION(BlueprintCallable, Category = FSWebSocket)
 	void SendText(const FString& data);
 
 	UFUNCTION(BlueprintCallable, Category = FSWebSocket)
+	void SendSDKMessage(const FString& data);
+
 	void SendSignIn();
 
 	UFUNCTION()
@@ -95,6 +96,6 @@ public:
 	FWebSocketConnected FSOnConnectComplete;
 
 	UPROPERTY(BlueprintAssignable, Category = WebSocket)
-		FWebSocketRecieve FSOnReceiveData;
+	FWebSocketRecieve FSOnReceiveData;
 
 };

@@ -54,7 +54,7 @@ void AFSWS_Example::OnConnectionError(const FString& error)
 void AFSWS_Example::SendData(const FString data)
 {
 	if (FSWebSocketInstance != nullptr) {
-		FSWebSocketInstance->SendText(data);
+		FSWebSocketInstance->SendSDKMessage(data);
 	}
 }
 
