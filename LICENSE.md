@@ -1,5 +1,4 @@
-furioos-sdk-unreal-engine copyright © 2020 Furioos
+Furioos UE4 SDK copyright © [2020] Unity Technologies SF
+This software is subject to, and made available under, the terms of service for Furioos Software governed by the [Unity Cloud Master Service Agreement](https://unity3d.com/legal/cloud-msa).
 
-This software is subject to, and made available under, the terms of service for Furioos (see [Furioos - Terms of service](https://www.furioos.com/terms-of-service)).
-
-Unless expressly provided otherwise, the software under this license is made available strictly on an “AS IS” BASIS WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Please review the terms of service for details on these and other terms and conditions.
+Unless expressly provided otherwise, the software under this license is made available strictly on an “AS IS” BASIS WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Please review the terms of service for details on these and other terms and conditions.”
