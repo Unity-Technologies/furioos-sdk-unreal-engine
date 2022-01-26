@@ -3,8 +3,8 @@
 This repository is in Beta, we do not provide support for it.
 
 ## Requirements
-Minimum requirements: Business subscription (or higher) on Furioos to use the SDK.
-Then choose the app you want to use with the SDK and create a SDK link.
+- A Furioos Account on www.furioos.com.
+- Then choose the application you want to use with the SDK and create a SDK link.
 
 **Tested on Unreal Engine 4.25.3 and 4.26-preview**
 
